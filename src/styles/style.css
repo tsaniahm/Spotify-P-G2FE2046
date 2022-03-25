@@ -1,0 +1,118 @@
+body {
+    font-family: sans-serif;
+    background-color: black;
+    margin: 0;
+  }
+  
+  .playlist-container {
+    margin: 10px auto;
+    width: 35%;
+    color: white;
+    padding: 0 15px;
+  }
+  
+  .playlist-container h1 {
+    margin-top: 40px;
+    text-align: center;
+  }
+  
+  img {
+    width: 200px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .input-title {
+    height: 40px;
+    width: 95%;
+    margin: 5px 0px 10px 0px;
+    padding-left: 20px;
+    border-radius: 30px;
+  }
+  
+  .input-desc {
+    height: 40px;
+    width: 95%;
+    margin: 5px 0px 10px 0px;
+    padding-left: 20px;
+    padding-top: 20px;
+    border-radius: 30px;
+  }
+  .form-label {
+    margin-left: 10px;
+  }
+  
+  .submit-button {
+    padding: 10px 40px;
+    border: none;
+    border-radius: 30px;
+    background-color: white;
+    font-weight: bold;
+    display: block;
+    margin: 10px auto 0px auto;
+  }
+  
+  .submit-button:hover {
+    padding: 12px 50px;
+    font-size: 0.8em;
+    color: #1db954;
+    display: block;
+    margin: 10px auto 0px auto;
+  }
+  
+  .song-container {
+    margin: 30px auto;
+    width: 35%;
+    border: 2px solid white;
+    padding: 20px 0;
+    background: linear-gradient(
+      180deg,
+      hsla(123, 21%, 45%, 1) 0%,
+      hsla(84, 16%, 18%, 1) 0%,
+      hsla(0, 0%, 0%, 1) 100%
+    );
+    border-radius: 10px;
+  }
+  
+  .song-container p,
+  h3 {
+    text-align: center;
+  }
+  
+  .title {
+    font-weight: bolder;
+    color: white;
+    margin-bottom: -12px;
+  }
+  
+  .artist {
+    color: gray;
+    font-weight: bold;
+  }
+  
+  .album {
+    color: white;
+    margin-bottom: -12px;
+  }
+
+  .year {
+    color: white;
+  }
+  
+  .button-play {
+    padding: 5px 40px;
+    color: white;
+    background-color: #1db954;
+    border: none;
+    font-size: 20px;
+    border-radius: 30px;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  .button-play:hover {
+    background-color: #216e3c;
+    font-size: 20px;
+    font-weight: bold;
+  }
