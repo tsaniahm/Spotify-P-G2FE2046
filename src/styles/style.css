@@ -60,12 +60,17 @@ body {
     display: block;
     margin: 10px auto 0px auto;
   }
+
+  .albums-container{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 30px;
+  }
   
   .song-container {
-    margin: 30px auto;
-    width: 35%;
-    border: 2px solid white;
-    padding: 20px 0;
+    margin: 30px 14px;
+    flex: 0 1 20%;
+    padding: 20px 20px;
     background: linear-gradient(
       180deg,
       hsla(123, 21%, 45%, 1) 0%,
@@ -74,9 +79,18 @@ body {
     );
     border-radius: 10px;
   }
+
+  .song-container:hover{
+    background: #010d02;
+  }
+
+  .song-container img {
+    width: 100%;
+    border-radius: 10px;
+  }
   
   .song-container p,
-  h3 {
+  h4 {
     text-align: center;
   }
   
@@ -100,7 +114,7 @@ body {
     color: white;
   }
   
-  .button-play {
+  .button-select {
     padding: 5px 40px;
     color: white;
     background-color: #1db954;
@@ -111,8 +125,69 @@ body {
     margin: 0 auto;
   }
   
-  .button-play:hover {
+  .button-select:hover {
     background-color: #216e3c;
     font-size: 20px;
     font-weight: bold;
+  }
+
+  .tracklist-table {
+    color: white;
+    margin: 40px 40px;
+    padding: 20px 30px;
+    background: linear-gradient(0deg, rgba(0,0,0,1) 7%, rgba(30,22,57,1) 88%, rgba(50,35,97,1) 96%, rgba(66,48,128,1) 100%);
+    border-radius: 10px;
+  }
+
+  .tracklist-table table {
+    width: 100%;
+  }
+
+  .tracklist-table h1 {
+    font-size: 2.5em;
+  }
+
+  .tracklist-table table thead,tbody {
+    text-align: left;
+  }
+
+
+  .track-title {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .track-image img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .title-and-artist {
+    margin-left: 10px;
+  }
+  .title-and-artist .artist {
+    color: grey;
+  }
+
+  .button-play {
+    padding: 5px 40px;
+    color: white;
+    background-color: #1db954;
+    border: none;
+    font-size: 15px;
+    border-radius: 30px;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .button-play:hover {
+    padding: 5px 40px;
+    color: black;
+    background-color: white;
+    border: none;
+    font-size: 15px;
+    border-radius: 30px;
+    display: block;
+    margin: 0 auto;
   }
