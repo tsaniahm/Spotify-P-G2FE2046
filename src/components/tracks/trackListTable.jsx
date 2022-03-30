@@ -36,7 +36,7 @@ const TableBodyItem = ({ item, index }) => {
             <td>
                 <div className="track-title">
                     <div className="track-image">
-                        <img src={item.album.images[0].url}></img>
+                        <img src={item.album.images[0].url} alt="#"></img>
                     </div>
                     <div className="title-and-artist">
                         <p>{item.name}</p>
