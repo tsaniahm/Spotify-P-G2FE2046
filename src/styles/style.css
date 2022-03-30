@@ -65,6 +65,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     padding: 0 30px;
+    margin-top: 30px;
   }
   
   .song-container {
@@ -139,6 +140,10 @@ body {
     border-radius: 10px;
   }
 
+  .tracklist-table-none {
+    display: none;
+  }
+
   .tracklist-table table {
     width: 100%;
   }
@@ -191,3 +196,74 @@ body {
     display: block;
     margin: 0 auto;
   }
+
+  .login-container {
+    margin: 10px auto;
+    width: 35%;
+    color: white;
+    padding: 0 15px;
+  }
+
+  .login-container h1 {
+    text-align: center;
+  }
+
+  .login-button {
+    padding: 10px 30px;
+    font-weight: bold;
+    color:white;
+    background-color: #1db954;
+    border: none;
+    border-radius: 30px;
+    display: block;
+    margin: 10px auto 0px auto;
+  }
+
+  .login-section-none {
+    display: none;
+  }
+
+  .search-tracklist-container {
+    color: white;
+  }
+
+  .search-container {
+    margin: 0 auto;
+    width: 50%;
+  }
+
+  .search-section {
+    display: flex;
+    
+    margin-top: 20px;
+}
+
+.search-section input {
+    height: 40px;
+    width:100%;
+    border-radius: 30px;
+    padding-left: 20px;
+
+}
+
+.search-button {
+    padding: 10px 30px;
+    background-color: #1db954;
+    margin-left: 10px;
+    color: white;
+    font-weight: bold;
+    border: 2px solid #1db954;
+    border-radius: 30px;
+}
+.search-button:hover {
+    background-color: white;
+    border: 2px solid #1db954;
+    color: #1db954;
+}
+.not-found {
+  display: none;
+}
+
+.search-tracklist-container .not-found-show {
+  text-align: center;
+}
