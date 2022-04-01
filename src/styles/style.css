@@ -61,7 +61,7 @@ body {
     margin: 10px auto 0px auto;
   }
 
-  .albums-container{
+  .tracks-container{
     display: flex;
     flex-wrap: wrap;
     padding: 0 30px;
@@ -266,4 +266,10 @@ body {
 
 .search-tracklist-container .not-found-show {
   text-align: center;
+}
+
+.result-font {
+  color: white;
+  margin-left: 50px;
+  margin-bottom: -35px;
 }
