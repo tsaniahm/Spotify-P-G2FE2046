@@ -1,14 +1,14 @@
 import React from "react";
 import Index from "./pages/index.jsx"
-
-import { SelectedTrackContextProvider } from "./context/selectedTrackContext.jsx";
+import { Provider } from "react-redux";
+import store from "./redux/store.jsx";
 
 function App() {
   return (
     <React.Fragment>
-      <SelectedTrackContextProvider>
+      <Provider store={store}>
         <Index />
-      </SelectedTrackContextProvider>
+      </Provider>
     </React.Fragment>
   )
 }

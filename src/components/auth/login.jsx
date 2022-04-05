@@ -1,4 +1,6 @@
 import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { addAccessToken } from "../../redux/acessTokenSlice";
 
 const { 
     REACT_APP_SPOTIFY_KEY,
@@ -21,6 +23,7 @@ const getParamsFromAuth = (hash) => {
 
 
 const Login = () => {
+    const dispatch = useDispatch()
 
     useEffect(() => {
         if (window.location.hash) {
@@ -34,9 +37,10 @@ const Login = () => {
             localStorage.setItem("accessToken", access_token);
             localStorage.setItem("tokenType", token_type);
             localStorage.setItem("expiresIn", expires_in);
+            dispatch(addAccessToken(access_token))
         }
 
-    }, []);
+    }, [dispatch]);
 
     const handleLogin = () => {
         window.location = `${REACT_APP_AUTHORIZE_ENDPOINT}?client_id=${REACT_APP_SPOTIFY_KEY}&redirect_uri=${REACT_APP_REDIRECT_URL}&scope=${SCOPES}&response_type=token&show_dialog=true`;

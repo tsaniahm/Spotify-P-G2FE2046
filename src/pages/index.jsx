@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import '../styles/style.css';
 import TracksData from "../tracksData/tracksDummy";
@@ -6,10 +6,10 @@ import TrackListCard from "../components/tracks/trackListCard";
 import TrackListTable from "../components/tracks/trackListTable";
 import Login from "../components/auth/login";
 import CreatePlaylist from "../components/playlist/createPlaylist";
+import {useSelector } from "react-redux";
 
 const Index = () => {
-
-    const [accesToken, setAcessToken] = useState('')
+    const accesToken = useSelector((state) => state.accessToken.value);
     const [searchResult, setSearchResult] = useState([])
     const [searchInput, setSearchInput] = useState('')
     const [selectedTracks, setSelectedTracks] = useState([])
@@ -18,31 +18,6 @@ const Index = () => {
         description: ''
     })
 
-
-    useEffect(() => {
-        const token = localStorage.getItem("accessToken")
-        if (token) {
-            setAcessToken(token)
-        }
-
-        //function to get current's user playlists in case want to check
-        const getCurrentPlaylist = async () => {
-            const url = `https://api.spotify.com/v1/me/playlists`;
-            try {
-                const response = await axios.get(url, {
-                    headers: {
-                        Authorization: `Bearer ${accesToken}`
-                    },
-                });
-                console.log("This is current's user playlist")
-                console.log(response)
-            } catch (error) {
-                console.log(error)
-            }
-        }
-        getCurrentPlaylist();
-    }, []);
-
     //function to handle search input
     const handleInputChange = (e) => {
         setSearchInput(e.target.value)
@@ -50,7 +25,6 @@ const Index = () => {
 
     //funtion to search
     const handleSearch = async () => {
-        console.log(accesToken)
         const url = `https://api.spotify.com/v1/search?q=${searchInput}&type=track`;
         try {
             const response = await axios.get(url, {
@@ -83,7 +57,6 @@ const Index = () => {
                     Authorization: `Bearer ${accesToken}`
                 },
             });
-            console.log(response.data.id)
             return response.data.id
         } catch (error) {
             console.error(error);
