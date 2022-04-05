@@ -1,16 +1,14 @@
 import React from "react"
-import { useSearchResult } from "../../context/selectedTrackContext";
 
-const TrackListCard = (props) => {
-    const data = props.value;
-    const {selectedTracks, setSelectedTracks} = useSearchResult()
-    
+const TrackListCard = ({value, selectedTracks, setSelectedTracks}) => {
+    const data = value;
+
     const handleTextButton = () => {
         const found = selectedTracks.findIndex((e) => e.uri === data.uri)
         if (found !== -1) {
             return 'Deselect'
-        }else{
-             return 'Select'
+        } else {
+            return 'Select'
         }
     }
 
@@ -21,7 +19,7 @@ const TrackListCard = (props) => {
             const newSelectedTracks = selectedTracks.filter((e) => e.uri !== data.uri)
             setSelectedTracks(newSelectedTracks)
         } else {
-            const newSelectedTracks = [...selectedTracks,data]
+            const newSelectedTracks = [...selectedTracks, data]
             setSelectedTracks(newSelectedTracks)
         }
     }
