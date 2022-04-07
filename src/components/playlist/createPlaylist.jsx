@@ -1,8 +1,8 @@
 import React from "react";
 
-const CreatePlaylist = ({handleCreatePlaylist, handleFormPlaylist}) => {
+const CreatePlaylist = ({ handleCreatePlaylist, handleFormPlaylist }) => {
     return (
-        <div className="playlist-container">
+        <React.Fragment>
             <h1>CREATE PLAYLIST</h1>
             <form onSubmit={handleCreatePlaylist}>
                 <label className="form-label" htmlFor="playlist-title">Playlist Title*</label>
@@ -16,6 +16,7 @@ const CreatePlaylist = ({handleCreatePlaylist, handleFormPlaylist}) => {
                     placeholder="Input your playlist title"
                     minLength={10}
                     onChange={handleFormPlaylist}
+                    required
                 />
                 <br />
                 <label className="form-label" htmlFor="playlist-desc">Description*</label>
@@ -29,9 +30,10 @@ const CreatePlaylist = ({handleCreatePlaylist, handleFormPlaylist}) => {
                     placeholder="Input the description"
                     onChange={handleFormPlaylist}
                 ></textarea>
+                <p className="form-p">*Before click "create", please select tracks first by using search input below</p>
                 <button id="submit" className="submit-button" type="submit">CREATE</button>
             </form>
-        </div>
+        </React.Fragment>
     )
 }
 
