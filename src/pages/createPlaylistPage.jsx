@@ -4,11 +4,15 @@ import '../styles/style.css';
 import TracksData from "../tracksData/tracksDummy";
 import TrackListCard from "../components/tracks/trackListCard";
 import TrackListTable from "../components/tracks/trackListTable";
-import Login from "../components/auth/login";
 import CreatePlaylist from "../components/playlist/createPlaylist";
-import {useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import Navbar from "../components/navbar/navbar";
+import { Redirect } from "react-router-dom";
+import { addAccessToken } from "../redux/acessTokenSlice";
+import Logout from "../components/auth/logout";
 
-const Index = () => {
+const CreatePlaylistPage = () => {
+    const dispatch = useDispatch()
     const accesToken = useSelector((state) => state.accessToken.value);
     const [searchResult, setSearchResult] = useState([])
     const [searchInput, setSearchInput] = useState('')
@@ -17,6 +21,17 @@ const Index = () => {
         title: '',
         description: ''
     })
+    const localToken = localStorage.getItem("accessToken");
+
+    if (localToken && !accesToken) {
+        dispatch(addAccessToken(localToken))
+    }
+
+    if (!accesToken) {
+        return (
+            <Redirect to='/'></Redirect>
+        )
+    }
 
     //function to handle search input
     const handleInputChange = (e) => {
@@ -119,14 +134,22 @@ const Index = () => {
         }
     }
 
+
     return (
         <React.Fragment>
-            <div className="login-container">
-                <Login />
+            <Navbar />
+            <div className="logout-container">
+                <Logout />
+            </div>
+
+            <div className="playlist-container">
+                <CreatePlaylist
+                    handleCreatePlaylist={handleCreatePlaylist}
+                    handleFormPlaylist={handleFormPlaylist}
+                />
             </div>
 
             <div className="search-container">
-                <h1>SEARCH PAGE</h1>
                 <div className="search-section">
                     <input type={'text'} placeholder={'Search Here'} onChange={handleInputChange}></input>
                     <button className="search-button" onClick={handleSearch}>Search</button>
@@ -137,10 +160,6 @@ const Index = () => {
                 {
                     selectedTracks.length > 0 &&
                     <>
-                        <CreatePlaylist
-                            handleCreatePlaylist={handleCreatePlaylist}
-                            handleFormPlaylist={handleFormPlaylist}
-                        />
                         <h3 className="result-font"> Selected Tracks</h3>
                         <div className="tracks-container">
                             {
@@ -184,4 +203,4 @@ const Index = () => {
     );
 }
 
-export default Index;
+export default CreatePlaylistPage;
