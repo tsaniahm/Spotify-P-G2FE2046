@@ -1,22 +1,22 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
+import { addAccessToken } from "../redux/acessTokenSlice";
 import Login from "../components/auth/login";
 import Navbar from "../components/navbar/navbar";
-import { addAccessToken } from "../redux/acessTokenSlice";
 
 const Homepage = () => {
     const dispatch = useDispatch()
     const accesToken = useSelector((state) => state.accessToken.value);
     const localToken = localStorage.getItem("accessToken");
 
-    if(localToken && !accesToken){
+    if (localToken && !accesToken) {
         dispatch(addAccessToken(localToken))
     }
 
-    if(accesToken) {
+    if (accesToken) {
         return (
-            <Redirect to='/create-playlist'></Redirect>
+            <Redirect to='/create-playlist' />
         )
     }
 

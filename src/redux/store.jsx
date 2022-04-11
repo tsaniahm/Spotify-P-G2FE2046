@@ -2,7 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import acessTokenSlice from "./acessTokenSlice";
 
 export default configureStore({
-    reducer:{
+    reducer: {
         accessToken: acessTokenSlice
     }
 })

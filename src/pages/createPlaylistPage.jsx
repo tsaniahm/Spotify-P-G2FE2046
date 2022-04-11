@@ -1,15 +1,16 @@
 import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { Redirect } from "react-router-dom";
+import { addAccessToken } from "../redux/acessTokenSlice";
 import axios from "axios";
 import '../styles/style.css';
 import TracksData from "../tracksData/tracksDummy";
 import TrackListCard from "../components/tracks/trackListCard";
 import TrackListTable from "../components/tracks/trackListTable";
 import CreatePlaylist from "../components/playlist/createPlaylist";
-import { useSelector, useDispatch } from "react-redux";
 import Navbar from "../components/navbar/navbar";
-import { Redirect } from "react-router-dom";
-import { addAccessToken } from "../redux/acessTokenSlice";
 import Logout from "../components/auth/logout";
+import SearchForm from "../components/tracks/searchForm";
 
 const CreatePlaylistPage = () => {
     const dispatch = useDispatch()
@@ -21,6 +22,7 @@ const CreatePlaylistPage = () => {
         title: '',
         description: ''
     })
+    
     const localToken = localStorage.getItem("accessToken");
 
     if (localToken && !accesToken) {
@@ -29,16 +31,14 @@ const CreatePlaylistPage = () => {
 
     if (!accesToken) {
         return (
-            <Redirect to='/'></Redirect>
+            <Redirect to='/' />
         )
     }
 
-    //function to handle search input
     const handleInputChange = (e) => {
         setSearchInput(e.target.value)
     }
 
-    //funtion to search
     const handleSearch = async () => {
         const url = `https://api.spotify.com/v1/search?q=${searchInput}&type=track`;
         try {
@@ -55,7 +55,6 @@ const CreatePlaylistPage = () => {
         }
     }
 
-    //function to handle create palylist form change
     const handleFormPlaylist = (e) => {
         setPlaylistName({
             ...playlistName,
@@ -63,7 +62,6 @@ const CreatePlaylistPage = () => {
         })
     }
 
-    //funtion to handle get current user
     const getUser = async () => {
         const url = `https://api.spotify.com/v1/me`;
         try {
@@ -78,7 +76,6 @@ const CreatePlaylistPage = () => {
         }
     }
 
-    //function to create playlist
     const createPlaylist = async (user_id) => {
         const url = `https://api.spotify.com/v1/users/${user_id}/playlists`
         try {
@@ -98,7 +95,6 @@ const CreatePlaylistPage = () => {
         }
     }
 
-    //function to add all the tracks we selected to playlist
     const addTracksToPlaylist = async (playlist_id) => {
         const url = `https://api.spotify.com/v1/playlists/${playlist_id}/tracks`
         try {
@@ -115,11 +111,11 @@ const CreatePlaylistPage = () => {
         }
     }
 
-    //function to create playlist
     const handleCreatePlaylist = async (e) => {
         e.preventDefault()
         const user_id = await getUser()
         const playlist_id = await createPlaylist(user_id)
+
         if (playlist_id) {
             const response = await addTracksToPlaylist(playlist_id)
             if (response) {
@@ -141,21 +137,18 @@ const CreatePlaylistPage = () => {
             <div className="logout-container">
                 <Logout />
             </div>
-
-            <div className="playlist-container">
+            <div className="form-playlist-container">
                 <CreatePlaylist
                     handleCreatePlaylist={handleCreatePlaylist}
                     handleFormPlaylist={handleFormPlaylist}
                 />
             </div>
-
             <div className="search-container">
-                <div className="search-section">
-                    <input type={'text'} placeholder={'Search Here'} onChange={handleInputChange}></input>
-                    <button className="search-button" onClick={handleSearch}>Search</button>
-                </div>
+                <SearchForm
+                    handleInputChange={handleInputChange}
+                    handleSearch={handleSearch}
+                />
             </div>
-
             <div className="search-result-container">
                 {
                     selectedTracks.length > 0 &&
@@ -194,10 +187,11 @@ const CreatePlaylistPage = () => {
                     </>
                 }
             </div>
-
             <div className="tracklist-table">
                 <h1>Tracklist</h1>
-                <TrackListTable value={TracksData} />
+                {
+                    TracksData?.map((element) => <TrackListTable value={TracksData} key={element.id} />)
+                }
             </div>
         </React.Fragment>
     );

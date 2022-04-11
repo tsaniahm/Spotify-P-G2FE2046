@@ -4,7 +4,7 @@ body {
     margin: 0;
   }
   
-  .playlist-container {
+  .form-playlist-container {
     margin: 20px auto 10px auto;
     width: 35%;
     color: white;
@@ -13,7 +13,7 @@ body {
     border-radius: 20px;
   }
   
-  .playlist-container h1 {
+  .form-playlist-container h1 {
     text-align: center;
   }
   

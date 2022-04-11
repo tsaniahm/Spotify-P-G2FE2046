@@ -16,7 +16,7 @@ const TrackListTable = (albumsData) => {
             <table>
                 <thead>
                     <tr>
-                        {column.map((element) => <TableHeadItem item={element} key={element.id} />)}
+                        {column.map((element, index) => <TableHeadItem item={element} key={index} />)}
                     </tr>
                 </thead>
                 <tbody>
