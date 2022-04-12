@@ -2,16 +2,16 @@ import { createSlice } from "@reduxjs/toolkit";
 
 export const AccesTokenSlice = createSlice({
     name: 'accessToken',
-    initialState:{
+    initialState: {
         value: ''
     },
     reducers: {
-        addAccessToken: (state, action) =>{
+        addAccessToken: (state, action) => {
             state.value = action.payload;
         }
     }
 })
 
-export const {addAccessToken} = AccesTokenSlice.actions;
+export const { addAccessToken } = AccesTokenSlice.actions;
 
 export default AccesTokenSlice.reducer;
