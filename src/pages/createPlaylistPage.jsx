@@ -11,6 +11,7 @@ import CreatePlaylist from "../components/playlist/createPlaylist";
 import Navbar from "../components/navbar/navbar";
 import Logout from "../components/auth/logout";
 import SearchForm from "../components/tracks/searchForm";
+import styles from '../styles/style.module.css'
 
 const CreatePlaylistPage = () => {
     const dispatch = useDispatch()
@@ -22,7 +23,7 @@ const CreatePlaylistPage = () => {
         title: '',
         description: ''
     })
-    
+
     const localToken = localStorage.getItem("accessToken");
 
     if (localToken && !accesToken) {
@@ -154,7 +155,7 @@ const CreatePlaylistPage = () => {
                     selectedTracks.length > 0 &&
                     <>
                         <h3 className="result-font"> Selected Tracks</h3>
-                        <div className="tracks-container">
+                        <div className={styles.tracksContainer}>
                             {
                                 selectedTracks.map((element) =>
                                     <TrackListCard
@@ -172,7 +173,7 @@ const CreatePlaylistPage = () => {
                     searchResult.length > 0 &&
                     <>
                         <h3 className="result-font"> Search Result</h3>
-                        <div className="tracks-container">
+                        <div className={styles.tracksContainer}>
                             {
                                 searchResult.map((element) =>
                                     <TrackListCard

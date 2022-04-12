@@ -1,0 +1,73 @@
+  .tracksContainer{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 30px;
+    margin-top: 30px;
+  }
+  
+  .songContainer {
+    margin: 30px 14px 0px 14px;;
+    display: flex;
+    justify-content: flex-start;
+    padding: 20px 20px;
+    background: linear-gradient(
+      180deg,
+      hsla(123, 21%, 45%, 1) 0%,
+      hsla(84, 16%, 18%, 1) 0%,
+      hsla(0, 0%, 0%, 1) 100%
+    );
+    border-radius: 10px;
+  }
+
+  .songContainer:hover{
+    background: #010d02;
+  }
+
+  .imageSongContainer img {
+    width: 200px;;
+    border-radius: 10px;
+  }
+
+  .titleSongContainer {
+    padding: 0px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  
+  .title {
+    font-weight: bolder;
+    color: white;
+    margin-bottom: -12px;
+  }
+  
+  .artist {
+    color: gray;
+    font-weight: bold;
+  }
+  
+  .album {
+    color: white;
+    margin-bottom: -12px;
+  }
+
+  .year {
+    color: white;
+  }
+  
+  .buttonSelect {
+    padding: 5px 40px;
+    color: white;
+    background-color: #1db954;
+    border: none;
+    font-size: 20px;
+    border-radius: 30px;
+    width: 200px;
+  }
+  
+  .buttonSelect:hover {
+    background-color: #216e3c;
+    font-size: 20px;
+    font-weight: bold;
+  }

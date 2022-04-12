@@ -1,6 +1,7 @@
 import React from "react"
+import styles from '../../styles/style.module.css'
 
-const TrackListCard = ({value, selectedTracks, setSelectedTracks}) => {
+const TrackListCard = ({ value, selectedTracks, setSelectedTracks }) => {
     const data = value;
 
     const handleTextButton = () => {
@@ -26,15 +27,19 @@ const TrackListCard = ({value, selectedTracks, setSelectedTracks}) => {
 
     return (
         <React.Fragment>
-            <div className="song-container">
-                <img src={data.album.images[0].url} alt="#" />
-                <h4 className="title">{data.name}</h4>
-                <p className="artist">{data.artists[0].name}</p>
-                <p className="album">{data.album.name}</p>
-                <p className="year"> {data.album.release_date.slice(0, 4)}</p>
-                <button className="button-select" onClick={handleSelectTrack}>
-                    {handleTextButton()}
-                </button>
+            <div className={styles.songContainer}>
+                <div className={styles.imageSongContainer}>
+                    <img src={data.album.images[0].url} alt="#" />
+                </div>
+                <div className={styles.titleSongContainer}>
+                    <h4 className={styles.title}>{data.name}</h4>
+                    <p className={styles.artist}>{data.artists[0].name}</p>
+                    <p className={styles.album}>{data.album.name}</p>
+                    <p className={styles.year}> {data.album.release_date.slice(0, 4)}</p>
+                    <button className={styles.buttonSelect} onClick={handleSelectTrack}>
+                        {handleTextButton()}
+                    </button>
+                </div>
             </div>
         </React.Fragment>
     )
