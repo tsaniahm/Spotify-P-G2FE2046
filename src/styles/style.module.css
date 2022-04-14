@@ -1,4 +1,4 @@
-  .tracksContainer{
+  .tracksContainer {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     padding: 0 30px;
@@ -19,7 +19,7 @@
     border-radius: 10px;
   }
 
-  .songContainer:hover{
+  .songContainer:hover {
     background: #010d02;
   }
 

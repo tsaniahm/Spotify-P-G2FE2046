@@ -140,7 +140,12 @@ body {
     color: white;
     margin: 40px 40px;
     padding: 20px 30px;
-    background: linear-gradient(0deg, rgba(0,0,0,1) 7%, rgba(30,22,57,1) 88%, rgba(50,35,97,1) 96%, rgba(66,48,128,1) 100%);
+    background: linear-gradient(
+      0deg, rgba(0,0,0,1) 7%,
+      rgba(30,22,57,1) 88%,
+      rgba(50,35,97,1) 96%,
+      rgba(66,48,128,1) 100%
+    );
     border-radius: 10px;
   }
 
@@ -156,7 +161,7 @@ body {
     font-size: 2.5em;
   }
 
-  .tracklist-table table thead,tbody {
+  .tracklist-table table thead, tbody {
     text-align: left;
   }
 
@@ -214,7 +219,7 @@ body {
     background-size: cover;
   }
 
-  .login-header-text{
+  .login-header-text {
     width:60%;
     margin-bottom: 50px;
   }
@@ -301,7 +306,7 @@ body {
   background-color: white;
 }
 
-.spotify-navbar ul  {
+.spotify-navbar ul {
   display: flex;
   flex-wrap: wrap;
   list-style: none;
@@ -339,7 +344,7 @@ body {
   margin-top: 20px;
 }
 
-.logout-button:hover{
+.logout-button:hover {
   color: white ;
   background-color: #1db954;
 }
