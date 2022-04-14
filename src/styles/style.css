@@ -203,9 +203,12 @@ body {
 
   .login-container {
     color: white;
-    padding: 35px 35px 35px 150px;
+    padding: 0px 35px 0px 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     background-image: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.5)), url('/public/images/cover.jpg');
-    min-height: 550px;
+    min-height: 630px;
     background-position: center; /* Center the image */
     background-repeat: no-repeat; /* Do not repeat the image */
     background-size: cover;
@@ -229,13 +232,13 @@ body {
   }
 
   .login-button {
-    padding: 10px 70px;
+    padding: 10px 10px;
     font-weight: bold;
     color:white;
     background-color: #1db954;
     border: none;
     border-radius: 30px;
-    display: block;
+    width: 20%;
   }
 
   .login-section-none {
