@@ -6,11 +6,16 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { Switch } from "react-router-dom";
 import { Route } from "react-router-dom";
 import CreatePlaylistPage from "./pages/createPlaylistPage.jsx";
+import { createTheme } from "@mui/material";
+import { ThemeProvider } from "styled-components";
+
+const theme = createTheme();
 
 function App() {
   return (
     <React.Fragment>
-      <Provider store={store}>
+     <ThemeProvider theme={theme}>
+     <Provider store={store}>
         <Router>
           <Switch>
             <Route exact path="/">
@@ -22,6 +27,7 @@ function App() {
           </Switch>
         </Router>
       </Provider>
+     </ThemeProvider>
     </React.Fragment>
   )
 }

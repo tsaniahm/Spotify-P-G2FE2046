@@ -1,8 +1,11 @@
 import React from "react"
-import styles from '../../styles/style.module.css'
+import { Card, Grid, Box, CardContent, Typography, CardMedia, Button } from "@mui/material";
+import { useStyleTracklistCard } from "../../styles/styles";
 
 const TrackListCard = ({ value, selectedTracks, setSelectedTracks }) => {
+    const style = useStyleTracklistCard();
     const data = value;
+    console.log(value)
 
     const handleTextButton = () => {
         const found = selectedTracks.findIndex((e) => e.uri === data.uri)
@@ -27,20 +30,35 @@ const TrackListCard = ({ value, selectedTracks, setSelectedTracks }) => {
 
     return (
         <React.Fragment>
-            <div className={styles.songContainer}>
-                <div className={styles.imageSongContainer}>
-                    <img src={data.album.images[0].url} alt="#" />
-                </div>
-                <div className={styles.titleSongContainer}>
-                    <h4 className={styles.title}>{data.name}</h4>
-                    <p className={styles.artist}>{data.artists[0].name}</p>
-                    <p className={styles.album}>{data.album.name}</p>
-                    <p className={styles.year}> {data.album.release_date.slice(0, 4)}</p>
-                    <button className={styles.buttonSelect} onClick={handleSelectTrack}>
-                        {handleTextButton()}
-                    </button>
-                </div>
-            </div>
+            <Grid item md={6} xs={12}>
+                <Card className={style.card}>
+                    <CardMedia
+                        component="img"
+                        image={data.album.images[0].url}
+                        alt="cover"
+                        className={style.cardMedia}
+                    />
+                    <Box>
+                        <CardContent className={style.cardContent}>
+                            <Typography component="div" variant="h5" color='white'>
+                                {data.name}
+                            </Typography>
+                            <Typography variant="subtitle1" color="white" component="div">
+                                {data.artists[0].name}
+                            </Typography>
+                            <Button
+                                size="medium"
+                                variant="contained"
+                                color="success"
+                                className={style.selectButton}
+                                onClick={handleSelectTrack}
+                            >
+                                {handleTextButton()}
+                            </Button>
+                        </CardContent>
+                    </Box>
+                </Card>
+            </Grid>
         </React.Fragment>
     )
 }

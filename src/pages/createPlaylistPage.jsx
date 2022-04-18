@@ -4,14 +4,12 @@ import { Redirect } from "react-router-dom";
 import { addAccessToken } from "../redux/acessTokenSlice";
 import axios from "axios";
 import '../styles/style.css';
-import TracksData from "../tracksData/tracksDummy";
 import TrackListCard from "../components/tracks/trackListCard";
-import TrackListTable from "../components/tracks/trackListTable";
 import CreatePlaylist from "../components/playlist/createPlaylist";
 import Navbar from "../components/navbar/navbar";
 import Logout from "../components/auth/logout";
 import SearchForm from "../components/tracks/searchForm";
-import styles from '../styles/style.module.css'
+import { Grid } from "@mui/material";
 
 const CreatePlaylistPage = () => {
     const dispatch = useDispatch()
@@ -155,7 +153,7 @@ const CreatePlaylistPage = () => {
                     selectedTracks.length > 0 &&
                     <>
                         <h3 className="result-font"> Selected Tracks</h3>
-                        <div className={styles.tracksContainer}>
+                        <Grid container spacing={2} sx={{ padding: '30px 40px' }}>
                             {
                                 selectedTracks.map((element) =>
                                     <TrackListCard
@@ -166,14 +164,14 @@ const CreatePlaylistPage = () => {
                                     />
                                 )
                             }
-                        </div>
+                        </Grid>
                     </>
                 }
                 {
                     searchResult.length > 0 &&
                     <>
                         <h3 className="result-font"> Search Result</h3>
-                        <div className={styles.tracksContainer}>
+                        <Grid container spacing={2} sx={{ padding: '30px 40px' }}>
                             {
                                 searchResult.map((element) =>
                                     <TrackListCard
@@ -184,16 +182,16 @@ const CreatePlaylistPage = () => {
                                     />
                                 )
                             }
-                        </div>
+                        </Grid>
                     </>
                 }
             </div>
-            <div className="tracklist-table">
+            {/* <div className="tracklist-table">
                 <h1>Tracklist</h1>
                 {
                     TracksData?.map((element) => <TrackListTable value={TracksData} key={element.id} />)
                 }
-            </div>
+            </div> */}
         </React.Fragment>
     );
 }
