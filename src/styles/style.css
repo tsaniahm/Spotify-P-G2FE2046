@@ -10,7 +10,7 @@ body {
     color: white;
     padding: 15px 15px;
     background: linear-gradient(0deg, rgba(0,0,0,1) 7%, rgba(30,22,57,1) 88%, rgba(50,35,97,1) 96%, rgba(66,48,128,1) 100%);
-    border-radius: 20px;
+    border-radius: 10px;
   }
   
   .form-playlist-container h1 {
@@ -23,7 +23,7 @@ body {
     width: 95%;
     margin: 5px 0px 10px 0px;
     padding-left: 20px;
-    border-radius: 30px;
+    border-radius: 10px;
   }
   
   .input-desc {
@@ -32,7 +32,7 @@ body {
     margin: 5px 0px 10px 0px;
     padding-left: 20px;
     padding-top: 20px;
-    border-radius: 30px;
+    border-radius: 10px;
   }
   .form-label, .form-p {
     margin-left: 10px;
@@ -202,7 +202,6 @@ body {
 
   .login-container {
     color: white;
-    padding: 0px 35px 0px 150px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -213,10 +212,11 @@ body {
     background-size: cover;
   }
 
-  .login-header-text {
-    width:60%;
-    margin-bottom: 50px;
-  }
+  /* .login-header-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  } */
 
   .login-container h1 {
     color:white;

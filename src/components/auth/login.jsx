@@ -1,6 +1,8 @@
+import { Button } from "@mui/material";
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { addAccessToken } from "../../redux/acessTokenSlice";
+import { useStyleHomepage } from "../../styles/styles";
 
 const {
     REACT_APP_SPOTIFY_KEY,
@@ -29,10 +31,11 @@ const TokenExpired = (dispatch, time) => {
 
 
 const Login = () => {
+    const style = useStyleHomepage()
     const dispatch = useDispatch()
     const accessToken = localStorage.getItem("accessToken")
     const expiresIn = localStorage.getItem("expiresIn")
-    TokenExpired(dispatch, expiresIn * 1000) 
+    TokenExpired(dispatch, expiresIn * 1000)
 
     useEffect(() => {
         if (window.location.hash) {
@@ -57,7 +60,14 @@ const Login = () => {
 
     return (
         <React.Fragment>
-            <button className="login-button" onClick={handleLogin}>Login</button>
+            <Button
+                size="medium"
+                variant="contained"
+                className={style.button}
+                onClick={handleLogin}
+            >
+                Login
+            </Button>
         </React.Fragment>
     )
 }

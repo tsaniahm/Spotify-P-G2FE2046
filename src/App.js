@@ -6,10 +6,8 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { Switch } from "react-router-dom";
 import { Route } from "react-router-dom";
 import CreatePlaylistPage from "./pages/createPlaylistPage.jsx";
-import { createTheme } from "@mui/material";
-import { ThemeProvider } from "styled-components";
-
-const theme = createTheme();
+import { ThemeProvider } from '@mui/material/styles';
+import { theme } from "./styles/theme.js";
 
 function App() {
   return (
