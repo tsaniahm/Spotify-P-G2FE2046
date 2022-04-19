@@ -2,7 +2,7 @@ import React from "react"
 import { Card, Grid, Box, CardContent, Typography, CardMedia, Button, Skeleton } from "@mui/material";
 import { useStyleTracklistCard } from "../../styles/styles";
 
-const TrackListCard = ({ value, selectedTracks, setSelectedTracks }) => {
+const TrackListCard = ({ imageUrl, title, singer, value, selectedTracks, setSelectedTracks }) => {
     const style = useStyleTracklistCard();
     const data = value;
     console.log(value)
@@ -39,17 +39,17 @@ const TrackListCard = ({ value, selectedTracks, setSelectedTracks }) => {
                     ) : (
                     <CardMedia
                         component="img"
-                        image={data.album.images[0].url}
+                        image={imageUrl}
                         alt="cover"
                         className={style.cardMedia}
                     />) }
                     <Box>
                         <CardContent className={style.cardContent}>
                             <Typography component="div" variant="h5" color='white'>
-                                {data.name}
+                                {title}
                             </Typography>
                             <Typography variant="subtitle1" color="white" component="div">
-                                {data.artists[0].name}
+                                {singer}
                             </Typography>
                             <Button
                                 size="medium"

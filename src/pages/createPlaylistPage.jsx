@@ -158,6 +158,9 @@ const CreatePlaylistPage = () => {
                                 selectedTracks.map((element) =>
                                     <TrackListCard
                                         value={element}
+                                        imageUrl={element.album.images[0].url}
+                                        title={element.name}
+                                        singer={element.artists[0].name}
                                         key={element.id}
                                         selectedTracks={selectedTracks}
                                         setSelectedTracks={setSelectedTracks}
@@ -176,6 +179,9 @@ const CreatePlaylistPage = () => {
                                 searchResult.map((element) =>
                                     <TrackListCard
                                         value={element}
+                                        imageUrl={element.album.images[0].url}
+                                        title={element.name}
+                                        singer={element.artists[0].name}
                                         key={element.id}
                                         selectedTracks={selectedTracks}
                                         setSelectedTracks={setSelectedTracks}
