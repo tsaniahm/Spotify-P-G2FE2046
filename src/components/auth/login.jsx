@@ -10,7 +10,7 @@ import toast from "react-hot-toast";
 const {
     REACT_APP_SPOTIFY_KEY,
     REACT_APP_AUTHORIZE_ENDPOINT,
-    REACT_APP_VERCEL_URL
+    REACT_APP_REDIRECT_URL
 } = process.env
 
 const SCOPES = "playlist-modify-private"
@@ -52,7 +52,7 @@ const Login = () => {
     }, [dispatch, accessToken]);
 
     const handleLogin = () => {
-        window.location = `${REACT_APP_AUTHORIZE_ENDPOINT}?client_id=${REACT_APP_SPOTIFY_KEY}&redirect_uri=${REACT_APP_VERCEL_URL}&scope=${SCOPES}&response_type=token&show_dialog=true`;
+        window.location = `${REACT_APP_AUTHORIZE_ENDPOINT}?client_id=${REACT_APP_SPOTIFY_KEY}&redirect_uri=${REACT_APP_REDIRECT_URL}&scope=${SCOPES}&response_type=token&show_dialog=true`;
     };
 
     return (
