@@ -1,6 +1,7 @@
-# Getting Started with Create React App
+# SPOTIFY Create Playlist App
 
 ![Screenshot 2022-04-22 084231](https://user-images.githubusercontent.com/71321557/164728988-2cfa7b8d-476e-4a2e-b49f-850a3b24d8e6.png)
+![Screenshot 2022-04-22 213958](https://user-images.githubusercontent.com/71321557/164737146-34830d9a-177e-4365-9bb2-5dfcaf02e16c.png)
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
