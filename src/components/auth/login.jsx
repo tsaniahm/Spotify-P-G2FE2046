@@ -1,8 +1,9 @@
 import { Button } from "@mui/material";
 import React, { useEffect } from "react";
+import toast from "react-hot-toast";
 import { useDispatch } from "react-redux";
 import { addAccessToken } from "../../redux/acessTokenSlice";
-import { useStyleHomepage } from "../../styles/styles";
+import { useStyleLandingPage } from "../../styles/styles";
 
 const {
     REACT_APP_SPOTIFY_KEY,
@@ -31,7 +32,7 @@ const TokenExpired = (dispatch, time) => {
 
 
 const Login = () => {
-    const style = useStyleHomepage()
+    const style = useStyleLandingPage()
     const dispatch = useDispatch()
     const accessToken = localStorage.getItem("accessToken")
     const expiresIn = localStorage.getItem("expiresIn")
@@ -50,6 +51,7 @@ const Login = () => {
             localStorage.setItem("tokenType", token_type);
             localStorage.setItem("expiresIn", expires_in);
             dispatch(addAccessToken(accessToken))
+            toast.success('Successfully Login!')
         }
 
     }, [dispatch, accessToken]);

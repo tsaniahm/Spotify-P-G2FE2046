@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 import { AppBar, Avatar, Box, IconButton, Menu, MenuItem, Toolbar, Typography } from "@mui/material";
 import { useStylesNavbar } from "../../styles/styles";
+import { Link } from "react-router-dom";
+import Logout from "../auth/logout";
+import { useSelector } from "react-redux";
 
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
-
-const Navbar = () => {
+const Navbar = (imageUrl) => {
     const style = useStylesNavbar();
+    const accesToken = useSelector((state) => state.accessToken.value);
+    const ref = React.createRef();
+
     const [anchorElUser, setAnchorElUser] = useState(null);
 
     const handleOpenUserMenu = (event) => {
@@ -33,33 +37,40 @@ const Navbar = () => {
                         Spotify
                     </Typography>
                 </Toolbar>
-                <Box>
-                    <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                        <Avatar alt="Remy Sharp" src="images/album.jpg" />
-                    </IconButton>
-                    <Menu
-                        sx={{ mt: '45px' }}
-                        id="menu-appbar"
-                        anchorEl={anchorElUser}
-                        anchorOrigin={{
-                            vertical: 'top',
-                            horizontal: 'right',
-                        }}
-                        keepMounted
-                        transformOrigin={{
-                            vertical: 'top',
-                            horizontal: 'right',
-                        }}
-                        open={Boolean(anchorElUser)}
-                        onClose={handleCloseUserMenu}
-                    >
-                        {settings.map((setting) => (
-                            <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                                <Typography textAlign="center">{setting}</Typography>
+                {accesToken &&
+                    <Box>
+                        <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }} ref={ref}>
+                            <Avatar alt="Remy Sharp" src={imageUrl.imageUrl} />
+                        </IconButton>
+                        <Menu
+                            sx={{ mt: '45px' }}
+                            id="menu-appbar"
+                            anchorEl={anchorElUser}
+                            anchorOrigin={{
+                                vertical: 'top',
+                                horizontal: 'right',
+                            }}
+                            keepMounted
+                            transformOrigin={{
+                                vertical: 'top',
+                                horizontal: 'right',
+                            }}
+                            open={Boolean(anchorElUser)}
+                            onClose={handleCloseUserMenu}
+                        >
+                            <Link to="/create-playlist">
+                                <MenuItem>Dashboard</MenuItem>
+                            </Link>
+                            <Link to="/Profile">
+                                <MenuItem>Profile</MenuItem>
+                            </Link>
+                            <MenuItem>
+                                <Logout />
                             </MenuItem>
-                        ))}
-                    </Menu>
-                </Box>
+                        </Menu>
+                    </Box>
+                }
+
             </Toolbar>
         </AppBar>
     )

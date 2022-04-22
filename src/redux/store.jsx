@@ -3,6 +3,6 @@ import acessTokenSlice from "./acessTokenSlice";
 
 export default configureStore({
     reducer: {
-        accessToken: acessTokenSlice
+        accessToken: acessTokenSlice,
     }
 })

@@ -1,11 +1,31 @@
 import React from "react"
-import { Card, Grid, Box, CardContent, Typography, CardMedia, Button, Skeleton } from "@mui/material";
+import { Card, Grid, Box, CardContent, Typography, CardMedia, Button, Skeleton, useMediaQuery } from "@mui/material";
 import { useStyleTracklistCard } from "../../styles/styles";
 
-const TrackListCard = ({ imageUrl, title, singer, value, selectedTracks, setSelectedTracks }) => {
+
+const TrackListCard = ({
+    imageUrl,
+    title,
+    singer,
+    value,
+    selectedTracks,
+    setSelectedTracks,
+    duration
+}) => {
+
     const style = useStyleTracklistCard();
+    const matches = useMediaQuery('(max-width:600px)');
+
+    const millisToMinutesAndSeconds = (millis : number) => {
+        var minutes = Math.floor(millis / 60000);
+        const seconds = ((millis % 60000) / 1000).toFixed(0);
+        //ES6 interpolated literals/template literals 
+        //If seconds is less than 10 put a zero in front.
+        return `${minutes}:${seconds}`;
+    }
+    const minute = millisToMinutesAndSeconds(duration)
+
     const data = value;
-    console.log(value)
 
     const handleTextButton = () => {
         const found = selectedTracks.findIndex((e) => e.uri === data.uri)
@@ -35,24 +55,27 @@ const TrackListCard = ({ imageUrl, title, singer, value, selectedTracks, setSele
             <Grid item md={6} xs={12}>
                 <Card className={style.card}>
                     {loading ? (
-                       <Skeleton variant="rectangular" width={210} height={118} />
+                        <Skeleton variant="rectangular" width={210} height={118} />
                     ) : (
-                    <CardMedia
-                        component="img"
-                        image={imageUrl}
-                        alt="cover"
-                        className={style.cardMedia}
-                    />) }
+                        <CardMedia
+                            component="img"
+                            image={imageUrl}
+                            alt="cover"
+                            className={style.cardMedia}
+                        />)}
                     <Box>
                         <CardContent className={style.cardContent}>
-                            <Typography component="div" variant="h5" color='white'>
+                            <Typography variant={matches ? 'caption' : 'subtitle1'} color="white" component="div">
+                                {minute}
+                            </Typography>
+                            <Typography component="div" variant={matches ? 'subtitle2' : 'h5'} color='white'>
                                 {title}
                             </Typography>
-                            <Typography variant="subtitle1" color="white" component="div">
+                            <Typography variant={matches ? 'caption' : 'subtitle1'} color="white" component="div">
                                 {singer}
                             </Typography>
                             <Button
-                                size="medium"
+                                size={matches ? 'small' : 'medium'}
                                 variant="contained"
                                 color="success"
                                 className={style.selectButton}
