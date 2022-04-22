@@ -1,14 +1,14 @@
 import React from "react"
 import { useStyleTracklistCard } from "../../styles/styles";
-import { 
-    Card, 
-    Grid, 
-    Box, 
-    CardContent, 
-    Typography, 
-    CardMedia, 
-    Button, 
-    Skeleton, 
+import {
+    Card,
+    Grid,
+    Box,
+    CardContent,
+    Typography,
+    CardMedia,
+    Button,
+    Skeleton,
     useMediaQuery
 } from "@mui/material";
 
@@ -20,12 +20,12 @@ const TrackListCard = ({
     selectedTracks,
     setSelectedTracks,
     duration
-} : any) => {
+}: any) => {
 
     const style = useStyleTracklistCard();
     const matches = useMediaQuery('(max-width:600px)');
 
-    const millisToMinutesAndSeconds = (millis : number) => {
+    const millisToMinutesAndSeconds = (millis: number) => {
         var minutes = Math.floor(millis / 60000);
         const seconds = ((millis % 60000) / 1000).toFixed(0);
         return `${minutes}:${seconds}`;
@@ -35,7 +35,7 @@ const TrackListCard = ({
     const data = value;
 
     const handleTextButton = () => {
-        const found = selectedTracks.findIndex((e : any) => {
+        const found = selectedTracks.findIndex((e: any) => {
             return e.uri === data.uri;
         })
 
@@ -80,7 +80,7 @@ const TrackListCard = ({
                             <Typography variant={matches ? 'caption' : 'subtitle1'} color="white" component="div">
                                 {minute}
                             </Typography>
-                            <Typography component="div" variant={matches ? 'subtitle2' : 'h5'} color='white'>
+                            <Typography component="div" variant={matches ? 'subtitle2' : 'h5'} color='white' data-testid="tracks-title">
                                 {title}
                             </Typography>
                             <Typography variant={matches ? 'caption' : 'subtitle1'} color="white" component="div">
