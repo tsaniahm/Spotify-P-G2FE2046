@@ -1,9 +1,62 @@
-# Getting Started with Create React App
+# SPOTIFY Create Playlist App
+  
+ <p align='center'>
+  Spotify Create Playlist App by <a href='https://github.com/tsaniahm'>Tsaniah Munfidah</a>.
+</p>
 
-![Screenshot 2022-04-22 084231](https://user-images.githubusercontent.com/71321557/164728988-2cfa7b8d-476e-4a2e-b49f-850a3b24d8e6.png)
+ <p align='center'>
+  GENERASI GIGIH 2.0
+</p>
 
+![Untitled design](https://user-images.githubusercontent.com/71321557/164758037-0b929286-ac37-41c8-a348-191ddc289f81.png)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## APP Description
+
+Spotify app by Tsaniah Munfidah is a website to create playlist by adding user's favorite songs or tracks. 
+
+The Spotify app is built as a responsive website, user can access it in every screen size of web browsers. And Tsaniah Munfidah tried as much as possible to build user friendly website and tried to implement UI/UX concept.
+
+This app include landing page to user access login, create playlist page to user search and add their favorite tracks and then create playlist based on it. And the last page is a simple profile page which contain user's  profile photo and display name. 
+
+## MAIN FEATURE
+
+1. Login Access
+2. Search Favorite Tracks/songs
+3. Select Favorite Tracks/Songs
+4. Create a playlist (Private Playlist) and add selected Tracks that already select before
+
+## ADDITIONAL FEATURE
+
+1. Profile Page Access with Profile Picture and Display Name
+
+## LINK ACCESS
+
+https://myspotify-tsaniah-generasigigih.vercel.app/
+
+## TUTORIAL
+
+## HOW TO RUN LOCALLY
+
+Clone from this repository
+```
+git clone https://github.com/tsaniahm/Spotify-P-G2FE2046.git
+```
+
+Go to the project directory
+```
+cd spotify-p-g2fe2046
+```
+
+Install dependencies
+```
+npm install
+```
+
+Start the development server
+```
+npm run start
+```
+Open http://localhost:3000 in browser
 
 ## Available Scripts
 
