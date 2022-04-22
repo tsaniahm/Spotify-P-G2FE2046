@@ -49,6 +49,7 @@ const ProfilePage = () => {
                 alignItems='center'
                 sx={{minHeight: '600px'}}
             >
+                <Typography variant="h4" sx={{marginBottom: '20px', color: 'white', fontWeight: 'bold'}}>PROFILE</Typography>
                 <Avatar
                     alt="Remy Sharp"
                     src={profileImage}
