@@ -4,7 +4,6 @@ body {
     margin: 0;
   }
   
-  /* //USED */
   .input-title {
     height: 40px;
     width: 95%;
@@ -43,10 +42,6 @@ body {
     margin: 10px auto 0px auto;
   }
 
-  /* //END USED */
-
-
-/* //USED */
   .login-container {
     color: white;
     display: flex;
@@ -59,8 +54,6 @@ body {
     background-size: cover;
   }
 
-
-/* USED */
 .logout-button {
   padding: 10px 50px;
   font-weight: bold;
