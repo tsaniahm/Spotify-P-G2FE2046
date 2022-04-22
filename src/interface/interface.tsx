@@ -28,7 +28,7 @@ export interface ExternalUrls {
     spotify: string;
 }
 
-export interface ExternalIDs{
+export interface ExternalIDs {
     isrc: string,
 }
 
