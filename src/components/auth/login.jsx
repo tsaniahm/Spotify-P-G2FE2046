@@ -21,8 +21,7 @@ const getParamsFromAuth = (hash) => {
         accumulater[key] = value;
         return accumulater;
     }, {});
-    console.log("ini split")
-    console.log(splitResult)
+    
     return splitResult;
 };
 
@@ -46,7 +45,7 @@ const Login = () => {
 
             dispatch(addAccessToken(access_token))
             toast.success('Successfully Login!')
-            
+
         }
 
     }, [dispatch, accessToken]);
