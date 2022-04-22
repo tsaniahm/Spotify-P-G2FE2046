@@ -1,6 +1,7 @@
 import axios from "axios";
 
-export const getSearchData = async (accesToken, searchInput)=> {
+
+export const getSearchData = async (accesToken : string, searchInput: string)=> {
 
     const url = `https://api.spotify.com/v1/search?q=${searchInput}&type=track`;
     try {

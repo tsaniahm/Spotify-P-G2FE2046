@@ -1,47 +1,56 @@
 import React, { Suspense, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
+
+import { SelectedTrack, Track } from "interface/interface";
+import TracksData from "../tracksData/tracksDummy";
+
+import { useSelector, useDispatch, TypedUseSelectorHook } from "react-redux";
 import { addAccessToken } from "../redux/acessTokenSlice";
-import '../styles/style.css';
-import TrackListCard from "../components/tracks/trackListCard.tsx";
-import Navbar from "../components/navbar/navbar";
+import { AppDispatch, RootState } from "../redux/store";
+
+import TrackListCard from "../components/tracks/trackListCard";
 import SearchForm from "../components/search/searchForm";
-import { Button, Grid, Modal, Typography, useMediaQuery } from "@mui/material";
+import Navbar from "../components/navbar/navbar";
+
+import { Button, Grid, Typography, useMediaQuery, Dialog } from "@mui/material";
 import { useStyleSearchInput } from "../styles/styles";
+import toast, { Toaster } from 'react-hot-toast';
 import { Add } from "@mui/icons-material";
+import '../styles/style.css';
+
+import { addTracksToPlaylist } from "../api/postTracksToPlaylist";
+import { createPlaylist } from "../api/postCreatePlaylist";
 import { getSearchData } from "../api/getSearchData";
 import { getUser } from "../api/getCurrentUser";
-import { createPlaylist } from "../api/postCreatePlaylist";
-import { addTracksToPlaylist } from "../api/postTracksToPlaylist";
-import TracksData from "../tracksData/tracksDummy";
-import toast, { Toaster } from 'react-hot-toast';
 
 const CreatePlaylistForm = React.lazy(() => import('../components/playlist/createPlaylistForm'));
+
+export const useAppDispatch = () => useDispatch<AppDispatch>()
+export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector
 
 const CreatePlaylistPage = () => {
     const style = useStyleSearchInput()
     const matches = useMediaQuery('(max-width:600px)');
 
     const dispatch = useDispatch()
-    const accesToken = useSelector((state) => state.accessToken.value);
+    const accesToken = useAppSelector((state: RootState) => state.accessToken.value);
     const localToken = localStorage.getItem("accessToken");
 
-    const [searchResult, setSearchResult] = useState([])
-    const [searchInput, setSearchInput] = useState('')
-    const [selectedTracks, setSelectedTracks] = useState([])
-    const [open, setOpen] = useState(false)
+    const [searchResult, setSearchResult] = useState<Track[]>([])
+    const [searchInput, setSearchInput] = useState<string>('')
+    const [selectedTracks, setSelectedTracks] = useState<SelectedTrack[]>([])
+    const [open, setOpen] = useState<boolean>(false)
     const [playlistName, setPlaylistName] = useState({
         title: '',
         description: ''
     })
-    const ref = React.createRef();
 
     if (localToken && !accesToken) {
         dispatch(addAccessToken(localToken))
     }
 
 
-    const handleInputChange = (e) => {
+    const handleInputChange = (e: any) => {
         setSearchInput(e.target.value)
     }
 
@@ -50,7 +59,8 @@ const CreatePlaylistPage = () => {
         setSearchResult(data)
     }
 
-    const handleFormPlaylist = (e) => {
+
+    const handleFormPlaylist = (e: any) => {
         setPlaylistName({
             ...playlistName,
             [e.target.name]: e.target.value
@@ -58,10 +68,9 @@ const CreatePlaylistPage = () => {
     }
 
 
-    const handleCreatePlaylist = async (e) => {
+    const handleCreatePlaylist = async (e: any) => {
         e.preventDefault()
-        const currentUser = await getUser(accesToken)
-        const user_id = currentUser.data.id
+        const user_id = await getUser(accesToken)
         const playlist_id = await createPlaylist(accesToken, user_id, playlistName.title, playlistName.description)
 
         if (playlist_id) {
@@ -75,14 +84,14 @@ const CreatePlaylistPage = () => {
                 setSearchResult([])
                 toast.success('Successfully created!');
                 setOpen(false)
-            }else{
+            } else {
                 toast.error("Failed to Create.")
             }
         }
     }
 
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
+    const handleOpen = (event: React.MouseEvent<HTMLElement>) => setOpen(true);
+    const handleClose = (event: React.MouseEvent<HTMLElement>) => setOpen(false);
 
     if (!accesToken) {
         return (
@@ -126,11 +135,11 @@ const CreatePlaylistPage = () => {
                         <Button
                             variant="contained"
                             size="large"
+                            onClick={(e) => handleOpen(e)}
                             className={style.createButton}
-                            onClick={handleOpen}
-                            ref={ref}
-                            startIcon={<Add />}>
-                            {!matches && 'Create Playlist'}
+                            startIcon={<Add />}
+                        >
+                           {!matches && 'Create Playlist'}
                         </Button>
                     </Grid>
                     <Grid container spacing={2} sx={{ padding: '30px 40px' }}>
@@ -191,13 +200,12 @@ const CreatePlaylistPage = () => {
                     </Grid>
             }
 
-            <Modal
+            <Dialog
                 open={open}
-                onClose={handleClose}
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
-                ref={ref}
-
+                fullWidth={true}
+                fullScreen={matches && true}
             >
                 <Suspense fallback={<div>Loading...</div>}>
                     <CreatePlaylistForm
@@ -207,7 +215,7 @@ const CreatePlaylistPage = () => {
                     />
                 </Suspense>
 
-            </Modal>
+            </Dialog>
         </React.Fragment>
     );
 }

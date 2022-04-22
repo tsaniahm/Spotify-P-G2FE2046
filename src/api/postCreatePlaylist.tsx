@@ -1,6 +1,6 @@
 import axios from "axios"
 
-export const createPlaylist = async (accesToken, user_id, title, description) => {
+export const createPlaylist = async (accesToken: string, user_id: any, title: string, description: string) => {
     const url = `https://api.spotify.com/v1/users/${user_id}/playlists`
     try {
         const response = await axios.post(url, {

@@ -1,7 +1,16 @@
 import React from "react"
-import { Card, Grid, Box, CardContent, Typography, CardMedia, Button, Skeleton, useMediaQuery } from "@mui/material";
 import { useStyleTracklistCard } from "../../styles/styles";
-
+import { 
+    Card, 
+    Grid, 
+    Box, 
+    CardContent, 
+    Typography, 
+    CardMedia, 
+    Button, 
+    Skeleton, 
+    useMediaQuery
+} from "@mui/material";
 
 const TrackListCard = ({
     imageUrl,
@@ -11,7 +20,7 @@ const TrackListCard = ({
     selectedTracks,
     setSelectedTracks,
     duration
-}) => {
+} : any) => {
 
     const style = useStyleTracklistCard();
     const matches = useMediaQuery('(max-width:600px)');
@@ -19,8 +28,6 @@ const TrackListCard = ({
     const millisToMinutesAndSeconds = (millis : number) => {
         var minutes = Math.floor(millis / 60000);
         const seconds = ((millis % 60000) / 1000).toFixed(0);
-        //ES6 interpolated literals/template literals 
-        //If seconds is less than 10 put a zero in front.
         return `${minutes}:${seconds}`;
     }
     const minute = millisToMinutesAndSeconds(duration)
@@ -28,7 +35,10 @@ const TrackListCard = ({
     const data = value;
 
     const handleTextButton = () => {
-        const found = selectedTracks.findIndex((e) => e.uri === data.uri)
+        const found = selectedTracks.findIndex((e : any) => {
+            return e.uri === data.uri;
+        })
+
         if (found !== -1) {
             return 'Deselect'
         } else {
@@ -37,10 +47,12 @@ const TrackListCard = ({
     }
 
     const handleSelectTrack = () => {
-        const found = selectedTracks.findIndex((e) => e.uri === data.uri)
+        const found = selectedTracks.findIndex((e: any) => {
+            return e.uri === data.uri;
+        })
 
         if (found > -1) {
-            const newSelectedTracks = selectedTracks.filter((e) => e.uri !== data.uri)
+            const newSelectedTracks = selectedTracks.filter((e: any) => e.uri !== data.uri)
             setSelectedTracks(newSelectedTracks)
         } else {
             const newSelectedTracks = [...selectedTracks, data]
