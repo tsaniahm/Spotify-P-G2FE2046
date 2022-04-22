@@ -39,8 +39,3 @@ function App() {
 }
 
 export default App;
-
-
-window.onbeforeunload = () => {
-  localStorage.removeItem('accessToken');
-}

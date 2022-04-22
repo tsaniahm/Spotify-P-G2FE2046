@@ -37,7 +37,7 @@ const CreatePlaylistPage = () => {
     const localToken = localStorage.getItem("accessToken");
 
     const [searchResult, setSearchResult] = useState<Track[]>([])
-    const [searchInput, setSearchInput] = useState<string>('')
+    const [searchInput, setSearchInput] = useState<string>('tracks_not_found')
     const [selectedTracks, setSelectedTracks] = useState<SelectedTrack[]>([])
     const [open, setOpen] = useState<boolean>(false)
     const [playlistName, setPlaylistName] = useState({
