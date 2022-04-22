@@ -1,15 +1,23 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import Login from "../components/auth/login";
 import Navbar from "../components/navbar/navbar";
 import { Typography } from "@mui/material";
 import { useStyleLandingPage } from "../styles/styles";
+import { addAccessToken } from "redux/acessTokenSlice";
 
 const LandingPage = () => {
     const style = useStyleLandingPage()
 
+    const dispatch = useDispatch()
     const accesToken = useSelector((state) => state.accessToken.value);
+    const localToken = localStorage.getItem("accessToken");
+
+    if (localToken && !accesToken) {
+        dispatch(addAccessToken(localToken))
+    }
+
 
     if (accesToken) {
         return (

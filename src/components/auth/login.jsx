@@ -21,22 +21,16 @@ const getParamsFromAuth = (hash) => {
         accumulater[key] = value;
         return accumulater;
     }, {});
+    console.log("ini split")
+    console.log(splitResult)
     return splitResult;
 };
 
-const TokenExpired = (dispatch, time) => {
-    setTimeout(() => {
-        dispatch(addAccessToken(localStorage.removeItem("accessToken")))
-    }, time)
-}
-
-
 const Login = () => {
     const style = useStyleLandingPage()
+
     const dispatch = useDispatch()
     const accessToken = localStorage.getItem("accessToken")
-    const expiresIn = localStorage.getItem("expiresIn")
-    TokenExpired(dispatch, expiresIn * 1000)
 
     useEffect(() => {
         if (window.location.hash) {
@@ -46,11 +40,11 @@ const Login = () => {
                 token_type
             } = getParamsFromAuth(window.location.hash);
 
-            localStorage.clear();
-            localStorage.setItem("accessToken", access_token);
             localStorage.setItem("tokenType", token_type);
             localStorage.setItem("expiresIn", expires_in);
-            dispatch(addAccessToken(accessToken))
+            localStorage.setItem("accessToken", access_token);
+
+            dispatch(addAccessToken(access_token))
             toast.success('Successfully Login!')
         }
 
