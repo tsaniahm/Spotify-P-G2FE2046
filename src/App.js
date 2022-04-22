@@ -1,14 +1,18 @@
 import React from "react";
-import { Provider } from "react-redux";
-import store from "./redux/store.tsx";
+
 import { BrowserRouter as Router } from "react-router-dom";
 import { Switch } from "react-router-dom";
 import { Route } from "react-router-dom";
-import CreatePlaylistPage from "./pages/createPlaylistPage.tsx";
+
+import { Provider } from "react-redux";
+import store from "./redux/store.tsx";
+
 import { ThemeProvider } from '@mui/material/styles';
 import { theme } from "./styles/theme.js";
-import LandingPage from "./pages/landingPage";
+
+import CreatePlaylistPage from "./pages/createPlaylistPage.tsx";
 import ProfilePage from "./pages/ProfilePage.jsx";
+import LandingPage from "./pages/landingPage";
 
 function App() {
   return (

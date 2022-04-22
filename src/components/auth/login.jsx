@@ -1,9 +1,12 @@
-import { Button } from "@mui/material";
 import React, { useEffect } from "react";
-import toast from "react-hot-toast";
-import { useDispatch } from "react-redux";
+
 import { addAccessToken } from "../../redux/acessTokenSlice";
+import { useDispatch } from "react-redux";
+
+
 import { useStyleLandingPage } from "../../styles/styles";
+import { Button } from "@mui/material";
+import toast from "react-hot-toast";
 
 const {
     REACT_APP_SPOTIFY_KEY,
