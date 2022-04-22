@@ -4,20 +4,7 @@ body {
     margin: 0;
   }
   
-  .form-playlist-container {
-    margin: 20px auto 10px auto;
-    width: 35%;
-    color: white;
-    padding: 15px 15px;
-    background: linear-gradient(0deg, rgba(0,0,0,1) 7%, rgba(30,22,57,1) 88%, rgba(50,35,97,1) 96%, rgba(66,48,128,1) 100%);
-    border-radius: 10px;
-  }
-  
-  .form-playlist-container h1 {
-    text-align: center;
-  }
-  
-  
+  /* //USED */
   .input-title {
     height: 40px;
     width: 95%;
@@ -56,277 +43,24 @@ body {
     margin: 10px auto 0px auto;
   }
 
-  .tracks-container{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    padding: 0 30px;
-    margin-top: 30px;
-  }
-  
-  .song-container {
-    margin: 30px 14px 0px 14px;;
-    display: flex;
-    justify-content: flex-start;
-    padding: 20px 20px;
-    background: linear-gradient(
-      180deg,
-      hsla(123, 21%, 45%, 1) 0%,
-      hsla(84, 16%, 18%, 1) 0%,
-      hsla(0, 0%, 0%, 1) 100%
-    );
-    border-radius: 10px;
-  }
-
-  .song-container:hover{
-    background: #010d02;
-  }
-
-  .image-song-container img {
-    width: 200px;;
-    border-radius: 10px;
-  }
-
-  .title-song-container {
-    padding: 0px 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  
-  
-  .title {
-    font-weight: bolder;
-    color: white;
-    margin-bottom: -12px;
-  }
-  
-  .artist {
-    color: gray;
-    font-weight: bold;
-  }
-  
-  .album {
-    color: white;
-    margin-bottom: -12px;
-  }
-
-  .year {
-    color: white;
-  }
-  
-  .button-select {
-    padding: 5px 40px;
-    color: white;
-    background-color: #1db954;
-    border: none;
-    font-size: 20px;
-    border-radius: 30px;
-    width: 200px;
-  }
-  
-  .button-select:hover {
-    background-color: #216e3c;
-    font-size: 20px;
-    font-weight: bold;
-  }
-
-  .tracklist-table {
-    color: white;
-    margin: 40px 40px;
-    padding: 20px 30px;
-    background: linear-gradient(
-      0deg, rgba(0,0,0,1) 7%,
-      rgba(30,22,57,1) 88%,
-      rgba(50,35,97,1) 96%,
-      rgba(66,48,128,1) 100%
-    );
-    border-radius: 10px;
-  }
-
-  .tracklist-table-none {
-    display: none;
-  }
-
-  .tracklist-table table {
-    width: 100%;
-  }
-
-  .tracklist-table h1 {
-    font-size: 2.5em;
-  }
-
-  .tracklist-table table thead, tbody {
-    text-align: left;
-  }
+  /* //END USED */
 
 
-  .track-title {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-  }
-
-  .track-image img {
-    width: 60px;
-    height: 60px;
-  }
-
-  .title-and-artist {
-    margin-left: 10px;
-  }
-  .title-and-artist .artist {
-    color: grey;
-  }
-
-  .button-play {
-    padding: 5px 40px;
-    color: white;
-    background-color: #1db954;
-    border: none;
-    font-size: 15px;
-    border-radius: 30px;
-    display: block;
-    margin: 0 auto;
-  }
-
-  .button-play:hover {
-    padding: 5px 40px;
-    color: black;
-    background-color: white;
-    border: none;
-    font-size: 15px;
-    border-radius: 30px;
-    display: block;
-    margin: 0 auto;
-  }
-
+/* //USED */
   .login-container {
     color: white;
     display: flex;
     flex-direction: column;
     justify-content: center;
     background-image: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.5)), url('/public/images/cover.jpg');
-    min-height: 630px;
+    min-height: 650px;
     background-position: center; /* Center the image */
     background-repeat: no-repeat; /* Do not repeat the image */
     background-size: cover;
   }
 
-  /* .login-header-text {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  } */
 
-  .login-container h1 {
-    color:white;
-    font-size: 5em;
-  }
-
-  .login-container p {
-    margin-top: -25px;
-    color:white;
-    line-height: 25px;
-    font-size: 1.2em;
-  }
-
-  .login-button {
-    padding: 10px 10px;
-    font-weight: bold;
-    color:white;
-    background-color: #1db954;
-    border: none;
-    border-radius: 30px;
-    width: 20%;
-  }
-
-  .login-section-none {
-    display: none;
-  }
-
-  .search-tracklist-container {
-    color: white;
-  }
-
-  .search-container {
-    margin: 0 auto;
-    width: 50%;
-  }
-
-  .search-section {
-    display: flex;
-    margin-top: 50px;
-}
-
-.search-section input {
-    height: 40px;
-    width:100%;
-    border-radius: 30px;
-    padding-left: 20px;
-
-}
-
-.search-button {
-    padding: 10px 30px;
-    background-color: #1db954;
-    margin-left: 10px;
-    color: white;
-    font-weight: bold;
-    border: 2px solid #1db954;
-    border-radius: 30px;
-}
-.search-button:hover {
-    background-color: white;
-    border: 2px solid #1db954;
-    color: #1db954;
-}
-.not-found {
-  display: none;
-}
-
-.search-tracklist-container .not-found-show {
-  text-align: center;
-}
-
-.result-font {
-  color: white;
-  margin-left: 50px;
-  margin-bottom: -35px;
-}
-
-
-.spotify-navbar {
-  padding: 2px 10px 4px 10px;
-  background-color: white;
-}
-
-.spotify-navbar ul {
-  display: flex;
-  flex-wrap: wrap;
-  list-style: none;
-  align-items: center;
-}
-
-.nav-login, .nav-home, .nav-create-playlist {
-  margin-left: 10px;
-}
-
-.nav-image {
-  width: 40px;
-}
-
-.nav-home {
-  font-weight: bold;
-  font-size: 30px;
-}
-
-.nav-logout {
-  text-align: right;
-}
-.logout-container {
-  width: 10%;
-  margin: 5px auto;
-}
+/* USED */
 .logout-button {
   padding: 10px 50px;
   font-weight: bold;
@@ -341,4 +75,10 @@ body {
 .logout-button:hover {
   color: white ;
   background-color: #1db954;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
 }
