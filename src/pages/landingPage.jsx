@@ -1,11 +1,14 @@
 import React from "react";
+
 import { useDispatch, useSelector } from "react-redux";
+import { addAccessToken } from "redux/acessTokenSlice";
 import { Redirect } from "react-router-dom";
+
+import { useStyleLandingPage } from "../styles/styles";
+import { Typography } from "@mui/material";
+
 import Login from "../components/auth/login";
 import Navbar from "../components/navbar/navbar";
-import { Typography } from "@mui/material";
-import { useStyleLandingPage } from "../styles/styles";
-import { addAccessToken } from "redux/acessTokenSlice";
 
 const LandingPage = () => {
     const style = useStyleLandingPage()
@@ -17,7 +20,6 @@ const LandingPage = () => {
     if (localToken && !accesToken) {
         dispatch(addAccessToken(localToken))
     }
-
 
     if (accesToken) {
         return (

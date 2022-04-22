@@ -1,10 +1,13 @@
-import { Avatar, Grid, Typography } from "@mui/material";
-import { getDataUser } from "api/getCurrentUser";
 import React, { useEffect, useState } from "react";
+
+import { addAccessToken } from "../redux/acessTokenSlice"
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
+
+import { Avatar, Grid, Typography } from "@mui/material";
 import Navbar from "../components/navbar/navbar";
-import { addAccessToken } from "../redux/acessTokenSlice";
+
+import { getDataUser } from "api/getCurrentUser";
 
 const ProfilePage = () => {
 
@@ -15,18 +18,18 @@ const ProfilePage = () => {
     const [curretUser, setCurrentUser] = useState([])
     const [profileImage, setProfileImage] = useState('');
 
-    useEffect(() =>{
-        if(accesToken){
-            const getUser = async () =>{
-                const getUserData =  await getDataUser(accesToken);
-                if(getUserData.data.images.length > 0){
+    useEffect(() => {
+        if (accesToken) {
+            const getUser = async () => {
+                const getUserData = await getDataUser(accesToken);
+                if (getUserData.data.images.length > 0) {
                     setProfileImage(getUserData.data.images[0].url)
                 }
                 setCurrentUser(getUserData.data)
             }
             getUser()
         }
-    },[accesToken])
+    }, [accesToken])
 
     if (localToken && !accesToken) {
         dispatch(addAccessToken(localToken))
@@ -47,15 +50,15 @@ const ProfilePage = () => {
                 direction='column'
                 justifyContent='center'
                 alignItems='center'
-                sx={{minHeight: '600px'}}
+                sx={{ minHeight: '600px' }}
             >
-                <Typography variant="h4" sx={{marginBottom: '20px', color: 'white', fontWeight: 'bold'}}>PROFILE</Typography>
+                <Typography variant="h4" sx={{ marginBottom: '20px', color: 'white', fontWeight: 'bold' }} data_testid='title-profile'>PROFILE</Typography>
                 <Avatar
                     alt="Remy Sharp"
                     src={profileImage}
                     sx={{ width: 200, height: 200 }}
                 />
-                <Typography  variant="h2" sx={{marginTop: '20px', color: 'white'}}>{curretUser.display_name}</Typography>
+                <Typography variant="h2" sx={{ marginTop: '20px', color: 'white' }}>{curretUser.display_name}</Typography>
             </Grid>
 
         </React.Fragment>

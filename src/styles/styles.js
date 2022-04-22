@@ -200,7 +200,6 @@ export const useStyleSearchInput = makeStyles(() => ({
 
 }))
 
-
 export const useStyleCreatePlaylist = makeStyles((theme) => ({
     box: {
         background: 'linear-gradient(0deg, rgba(0,0,0,1) 7%, rgba(30,22,57,1) 88%, rgba(50,35,97,1) 96%, rgba(66,48,128,1) 100%)',

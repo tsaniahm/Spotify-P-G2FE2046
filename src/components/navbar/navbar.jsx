@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+
 import { AppBar, Avatar, Box, IconButton, Menu, MenuItem, Toolbar, Typography } from "@mui/material";
 import { useStylesNavbar } from "../../styles/styles";
-import { Link } from "react-router-dom";
-import Logout from "../auth/logout";
-import { useSelector } from "react-redux";
+
 import { getDataUser } from "api/getCurrentUser";
+import Logout from "../auth/logout";
+
+
 
 const Navbar = () => {
     const style = useStylesNavbar();
@@ -20,20 +24,19 @@ const Navbar = () => {
 
     const handleCloseUserMenu = () => {
         setAnchorElUser(null);
-
     };
 
-    useEffect(() =>{
-        if(accesToken){
-            const getUser = async () =>{
-                const getUserData =  await getDataUser(accesToken);
-                if(getUserData.data.images.length > 0){
+    useEffect(() => {
+        if (accesToken) {
+            const getUser = async () => {
+                const getUserData = await getDataUser(accesToken);
+                if (getUserData.data.images.length > 0) {
                     setProfileImage(getUserData.data.images[0].url)
                 }
             }
             getUser()
         }
-    },[accesToken])
+    }, [accesToken])
 
 
     return (

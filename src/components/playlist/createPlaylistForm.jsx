@@ -1,7 +1,9 @@
-import CloseIcon from '@mui/icons-material/Close';
-import { Box, IconButton, Typography } from "@mui/material";
 import React from "react";
+
+import { Box, IconButton, Typography } from "@mui/material";
 import { useStyleCreatePlaylist } from "../../styles/styles";
+import CloseIcon from '@mui/icons-material/Close';
+
 
 const CreatePlaylistForm = ({ handleCreatePlaylist, handleFormPlaylist, handleClose }) => {
     const style = useStyleCreatePlaylist()

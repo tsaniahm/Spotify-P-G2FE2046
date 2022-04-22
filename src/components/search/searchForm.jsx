@@ -1,7 +1,9 @@
-import SearchIcon from '@mui/icons-material/Search';
-import { Button, Grid, TextField, useMediaQuery } from "@mui/material";
 import React from "react";
+
+
+import { Button, Grid, TextField, useMediaQuery } from "@mui/material";
 import { useStyleSearchInput } from "../../styles/styles";
+import SearchIcon from '@mui/icons-material/Search';
 
 const SearchForm = ({ handleInputChange, handleSearch }) => {
     const style = useStyleSearchInput()
@@ -27,7 +29,7 @@ const SearchForm = ({ handleInputChange, handleSearch }) => {
                     startIcon={<SearchIcon />}
                     onClick={handleSearch}
                 >
-                   {!matches && 'Search'}
+                    {!matches && 'Search'}
                 </Button>
             </Grid>
         </React.Fragment>

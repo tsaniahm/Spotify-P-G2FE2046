@@ -49,7 +49,6 @@ const CreatePlaylistPage = () => {
         dispatch(addAccessToken(localToken))
     }
 
-
     const handleInputChange = (e: any) => {
         setSearchInput(e.target.value)
     }
@@ -59,14 +58,12 @@ const CreatePlaylistPage = () => {
         setSearchResult(data)
     }
 
-
     const handleFormPlaylist = (e: any) => {
         setPlaylistName({
             ...playlistName,
             [e.target.name]: e.target.value
         })
     }
-
 
     const handleCreatePlaylist = async (e: any) => {
         e.preventDefault()
@@ -139,7 +136,7 @@ const CreatePlaylistPage = () => {
                             className={style.createButton}
                             startIcon={<Add />}
                         >
-                           {!matches && 'Create Playlist'}
+                            {!matches && 'Create Playlist'}
                         </Button>
                     </Grid>
                     <Grid container spacing={2} sx={{ padding: '30px 40px' }}>
