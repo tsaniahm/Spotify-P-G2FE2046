@@ -21,7 +21,6 @@ const getParamsFromAuth = (hash) => {
         accumulater[key] = value;
         return accumulater;
     }, {});
-    
     return splitResult;
 };
 
