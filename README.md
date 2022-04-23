@@ -1,14 +1,17 @@
-# SPOTIFY Create Playlist App
   
- <p align='center'>
-  Spotify Create Playlist App by <a href='https://github.com/tsaniahm'>Tsaniah Munfidah</a>.
+ <p align='center' style='font-size: 50px;'>
+  <b>SPOTIFY CREATE PLAYLIST APP</b>
+</p>
+
+ <p align='center' style='font-size: 50px;'>
+  by <a href='https://github.com/tsaniahm'>Tsaniah Munfidah</a>.</b>
 </p>
 
  <p align='center'>
   GENERASI GIGIH 2.0
 </p>
 
-![Untitled design](https://user-images.githubusercontent.com/71321557/164758037-0b929286-ac37-41c8-a348-191ddc289f81.png)
+![Untitled design (1)](https://user-images.githubusercontent.com/71321557/164874306-c7f6d4b3-8a4f-4069-8151-a34f89c9a087.png)
 
 ## APP Description
 
@@ -18,22 +21,36 @@ The Spotify app is built as a responsive website, user can access it in every sc
 
 This app include landing page to user access login, create playlist page to user search and add their favorite tracks and then create playlist based on it. And the last page is a simple profile page which contain user's  profile photo and display name. 
 
-## MAIN FEATURE
+## MAIN FEATURES
 
-1. Login Access
+1. Login Access (using spotify implicit grant flow auth)
 2. Search Favorite Tracks/songs
 3. Select Favorite Tracks/Songs
-4. Create a playlist (Private Playlist) and add selected Tracks that already select before
+4. Create a playlist (Private Playlist) by inputing playlist title and description
+5. Add selected Tracks that already select before to playlist
 
-## ADDITIONAL FEATURE
+## ADDITIONAL FEATURES
 
 1. Profile Page Access with Profile Picture and Display Name
+2. Logout feature
+3. Using [MATERIAL UI](https://mui.com/) to impove user interface and user experience
 
 ## LINK ACCESS
 
 https://myspotify-tsaniah-generasigigih.vercel.app/
 
 ## TUTORIAL
+
+[CLICK THIS LINK](https://youtu.be/9V_cOGHcohQ) to watch the tutorial video
+
+## OTHER INFO
+
+This Spotify create playlist app using some resource on bellow:
+1. [SPOTIFY WEB API](https://developer.spotify.com/) to provide the data
+2. [REACT JS](https://reactjs.org/) to build the user interfaces
+3. [MATERIAL UI](https://mui.com/) to improve the user interfaces and the user experience
+4. [AXIOS](https://axios-http.com/docs/intro) as promise based HTTP client for the browser and node.js
+5. [TYPESCRIPT](https://www.typescriptlang.org/) in some files
 
 ## HOW TO RUN LOCALLY
 
